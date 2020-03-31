@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ListingController@index')->name('listing.index');
-// Route::get('inventory/{vehicle}-{slug}', 'ListingController@show')->name('listing.show');
+Route::get('inventory/{vehicle}-{slug}', 'ListingController@show')->name('listing.show');
 
 // Route::view('/contact', 'contact');
 
