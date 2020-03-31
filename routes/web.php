@@ -8,9 +8,7 @@ Route::get('inventory/{vehicle}-{slug}', 'ListingController@show')->name('listin
 Route::view('/contact', 'contact');
 
 // Admin Dashboard
-/* 
-    Route::get('/admin', tbd);
-*/
+Route::view('admin', '/admin');
 
 // Admin Vehicles Inventory
 // Route::get('/admin/vehicles', 'admin\VehicleController@index')->name('vehicle.index');
@@ -28,5 +26,4 @@ Route::view('/contact', 'contact');
 
 Auth::routes(['reset' => false]);
 
-// Route::view('admin', '/admin');
 // Route::get('/home', 'HomeController@index')->name('home');
