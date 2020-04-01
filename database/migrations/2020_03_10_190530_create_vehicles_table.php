@@ -29,6 +29,7 @@ class CreateVehiclesTable extends Migration
             $table->unsignedBigInteger('transmission_id');
             $table->unsignedBigInteger('cylinder_id');
             $table->unsignedBigInteger('drivetrain_id');
+            $table->json('features')->nullable();
             $table->timestamps();
         });
     }
