@@ -16,10 +16,11 @@ class BodyTypesTableSeeder extends Seeder
             ['name' => 'Coupe', 'slug' => 'coupe'],
             ['name' => 'Sedan', 'slug' => 'sedan'],
             ['name' => 'Convertible', 'slug' => 'convertible'],
-            ['name' => 'Sport Car', 'slug' => 'sport-car'],
+            ['name' => 'SUV', 'slug' => 'suv'],
             ['name' => 'Truck', 'slug' => 'truck'],
             ['name' => 'MiniVan/Van', 'slug' => 'minivan-van'],
-            ['name' => 'Wagon', 'slug' => 'wagon']
+            ['name' => 'Wagon', 'slug' => 'wagon'],
+            ['name' => 'Hatchback', 'slug' => 'hatchback']
         ]);
     }
 }
