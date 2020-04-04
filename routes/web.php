@@ -13,6 +13,7 @@ Route::view('admin', '/admin');
 // Admin Vehicles Inventory
 Route::get('/admin/vehicles', 'admin\VehicleController@index')->name('vehicle.index');
 Route::get('/admin/vehicles/create', 'admin\VehicleController@create')->name('vehicle.create');
+Route::post('/admin/vehicles', 'admin\VehicleController@store');
 
 // Route::post('/admin/vehicles', 'admin/VehiclesController@store');
 // Route::get('/admin/vehicles/{id}/edit', 'admin/VehiclesController@edit');
