@@ -136,6 +136,27 @@
                         </tr>
                     </tbody>
                     </table>
+
+                    @if ($vehicle->features && count($vehicle->features) > 0)
+                      <!--Features-Table-->
+                      <table>
+                        <thead>
+                          <tr>
+                            <th colspan="2">Features</th>
+                          </tr>
+                        </thead>
+                        <tbody id="accessoriestable">
+                            @foreach ($vehicle->features as $feature)
+                              <tr>                      
+                                <td>{{ $feature }}</td>
+                                <td>
+                                  <i class="fa fa-check" aria-hidden="true"></i>
+                                </td>
+                              </tr>
+                            @endforeach    
+                          </tbody>
+                        </table>
+                    @endif
                   </div>
       </div>
 
