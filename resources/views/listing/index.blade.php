@@ -43,11 +43,11 @@
     @forelse ($vehicles as $vehicle)
         <div class="product-listing-m gray-bg">
 
-        {{-- <div class="product-listing-img">
+        <div class="product-listing-img">
             <a href="{{ route('listing.show', [$vehicle, Str::slug($vehicle->model)]) }}">
-                <img class="img-responsive" src="{{ $vehicle->image }}" />
+                <img class="img-responsive" src="{{ asset('storage/uploads/'.$vehicle->image) }}" />
             </a>
-        </div> --}}
+        </div>
 
         <div class="product-listing-content">
 

@@ -33,7 +33,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <img style="width: 100%;" src="{{ $vehicle->image }}" alt="{{ $vehicle->model }}">
+          <img style="width: 100%;" src="{{ asset('storage/uploads/'.$vehicle->image) }}" alt="{{ $vehicle->model }}">
           <div class="space-20"></div>
           <div class="main_features">
             <ul>
