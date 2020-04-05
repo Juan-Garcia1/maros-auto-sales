@@ -85,7 +85,7 @@
               <li class="nav-item">
                 <a href="{{ route('vehicle.create') }}" class="nav-link {{Route::currentRouteName() === 'vehicle.create' ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Vehicles</p>
+                  <p>Add Vehicle</p>
                 </a>
               </li>
             </ul>
