@@ -26,7 +26,7 @@
                         </div> --}}
                     </td>
                     {{-- <td><span class="badge bg-danger">55%</span></td> --}}
-                    <td>edit</td>
+                    <td><a href="{{ route('vehicle.edit', [$vehicle]) }}">edit</a></td>
                 </tr>
             @endforeach
         

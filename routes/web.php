@@ -14,6 +14,8 @@ Route::view('admin', '/admin');
 Route::get('/admin/vehicles', 'admin\VehicleController@index')->name('vehicle.index');
 Route::get('/admin/vehicles/create', 'admin\VehicleController@create')->name('vehicle.create');
 Route::post('/admin/vehicles', 'admin\VehicleController@store');
+Route::get('/admin/vehicles/{vehicle}/edit', 'admin\VehicleController@edit')->name('vehicle.edit');
+Route::put('/admin/vehicles/{vehicle}', 'admin\VehicleController@update')->name('vehicle.update');
 
 // Route::post('/admin/vehicles', 'admin/VehiclesController@store');
 // Route::get('/admin/vehicles/{id}/edit', 'admin/VehiclesController@edit');
