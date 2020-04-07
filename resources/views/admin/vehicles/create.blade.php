@@ -317,7 +317,7 @@
             <div class="col-md-9">
                 <div class="form-group d-flex flex-column">
                     <label for="image">Vehicle Image</label>
-                    <input class="py-2 @error('image') is-invalid @enderror" type="file" name="image" id="image">
+                    <input class="py-2 @error('image') is-invalid @enderror" type="file" accept="image/jpeg" name="image" id="image">
                     @error('image')
                         <p class="text-danger"><small>{{ $message }}</small></p>
                     @enderror
