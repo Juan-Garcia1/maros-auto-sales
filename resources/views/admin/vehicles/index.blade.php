@@ -37,8 +37,8 @@
         </tbody>
     </table>
     
-    {{-- <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end">
         {{ $vehicles->links() }}
-    </div> --}}
+    </div>
 
 @endsection
