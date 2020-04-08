@@ -223,6 +223,18 @@ class VehicleController extends Controller
         // return redirect('/admin/vehicles');
     }
 
+    public function search(Request $request)
+    {
+        $request->validate([
+            'query' => 'required|min:5'
+        ]);
+
+        $query = $request->input('query');
+        $vehicles = Vehicle::where('vin', 'like', "%$query%")->get();
+
+        return view('admin/vehicles/search-results', compact('vehicles'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

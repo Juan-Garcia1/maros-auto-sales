@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('header-title')
-    Vehicles
+    Search Results
 @endsection
 
 @section('content')
@@ -18,27 +18,27 @@
         </tr>
         </thead>
         <tbody>
-            @foreach ($vehicles as $vehicle)
+            @forelse ($vehicles as $vehicle)
                 <tr>
                     <td>{{ $vehicle->id }}</td>
                     <td>{{ $vehicle->model }}</td>
                     <td>
                         {{ $vehicle->location->address }}
-                        {{-- <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div> --}}
+                        
                     </td>
-                    {{-- <td><span class="badge bg-danger">55%</span></td> --}}
+                   
                     <td>{{ $vehicle->vin }}</td>
                     <td><a href="{{ route('vehicle.edit', [$vehicle]) }}">edit</a></td>
                 </tr>
-            @endforeach
+                @empty
+                <tr>
+                    <td colspan="5">
+                        <p class="text-center">No results found</p>
+                    </td>
+                </tr>
+            @endforelse
         
         </tbody>
     </table>
-    
-    {{-- <div class="d-flex justify-content-end">
-        {{ $vehicles->links() }}
-    </div> --}}
 
 @endsection

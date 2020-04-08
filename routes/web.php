@@ -17,6 +17,8 @@ Route::post('/admin/vehicles', 'admin\VehicleController@store');
 Route::get('/admin/vehicles/{vehicle}/edit', 'admin\VehicleController@edit')->name('vehicle.edit');
 Route::put('/admin/vehicles/{vehicle}', 'admin\VehicleController@update')->name('vehicle.update');
 
+Route::get('/admin/vehicles/search', 'admin\VehicleController@search')->name('search');
+
 // Route::post('/admin/vehicles', 'admin/VehiclesController@store');
 // Route::get('/admin/vehicles/{id}/edit', 'admin/VehiclesController@edit');
 // Route::put('/admin/vehicles/{id}', 'admin/VehiclesController@update');
