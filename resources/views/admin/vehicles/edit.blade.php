@@ -22,7 +22,17 @@
 
             <div class="col-md-9">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="vin">Vin</label>
+                            <input type="text" class="form-control @error('vin') is-invalid @enderror" name="vin" id="vin" value={{ $vehicle->vin }}>
+                            @error('vin')
+                                <p class="text-danger"><small>{{ $message }}</small></p>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- /.col-md-3 -->
+                    <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="model">Model</label>
                             <input type="text" class="form-control @error('model') is-invalid @enderror" id="model" name="model" placeholder="Mustang" value="{{ $vehicle->model }}">
@@ -31,9 +41,9 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- /.col-md-5 -->
+                    <!-- /.col-md-6 -->
 
-                    <div class="col-md-2">
+                    <div class="col-md-3 col-sm-4">
                         <div class="form-group">
                             <label for="year">Year</label>
                             <input type="number" class="form-control @error('year') is-invalid @enderror" id="year" name="year" placeholder="2014" value="{{ $vehicle->year }}">
@@ -42,9 +52,9 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- /.col-md-2 -->
+                    <!-- /.col-md-3 -->
 
-                    <div class="col-md-5 col-sm-9">
+                    <div class="col-md-3 col-sm-4">
                         <div class="form-group">
                             <label for="make">Make</label>
                             <select class="form-control @error('make_id') is-invalid @enderror" id="make" name="make_id">
@@ -58,9 +68,9 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- /.col-md-5 -->
+                    <!-- /.col-md-3 -->
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-4">
                         <div class="form-group">
                             <label for="price">Price</label>
                             <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="22000" value="{{ $vehicle->price }}">
@@ -69,9 +79,9 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- /.col-md-5 -->
+                    <!-- /.col-md-3 -->
                     
-                    <div class="col-md-9">
+                    <div class="col-md-6 col-sm-12">
                         <div class="form-group">
                             <label for="location">Location</label>
                             <select class="form-control @error('location_id') is-invalid @enderror" id="location" name="location_id">
@@ -85,9 +95,9 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- /.col-sm-12 -->
+                    <!-- /.col-md-6 -->
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-4 col-6">
                         <div class="form-group">
                             <label for="mileage">Mileage</label>
                             <input type="number" class="form-control @error('mileage') is-invalid  @enderror" id="mileage" name="mileage" placeholder="78000" value="{{ $vehicle->mileage }}">
@@ -98,7 +108,7 @@
                     </div>
                     <!-- /.col-md-4 -->
 
-                    <div class="col-md-4 col-6">
+                    <div class="col-md-4 col-sm-4 col-6">
                         <div class="form-group">
                             <label for="owners">No. of Owners</label>
                             <input type="number" class="form-control @error('owners') is-invalid @enderror" id="owners" name="owners" placeholder="2" value="{{ $vehicle->owners }}">
@@ -109,7 +119,7 @@
                     </div>
                     <!-- /.col-md-4 -->
 
-                    <div class="col-md-4 col-6">
+                    <div class="col-md-4 col-sm-4 col-6">
                         <div class="form-group">
                             <label for="seats">No. of Seats</label>
                             <select class="form-control @error('seats') is-invalid @enderror" id="seats" name="seats">
@@ -125,7 +135,7 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- /.col-md-2 -->
+                    <!-- /.col-md-4 -->
                 </div>
                 <!-- /.row -->
             </div>

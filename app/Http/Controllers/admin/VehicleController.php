@@ -41,7 +41,7 @@ class VehicleController extends Controller
         $locations = Location::all();
         $makes = Make::all();
         $transmissions = Transmission::all();
-        return view('admin/vehicles/create', compact('bodytypes','colors', 'cylinders', 'drivetrains', 'locations', 'makes', 'transmissions'));
+        return view('admin/vehicles/create', compact('bodytypes', 'colors', 'cylinders', 'drivetrains', 'locations', 'makes', 'transmissions'));
     }
 
     /**
@@ -53,6 +53,7 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'vin' => 'required|size:17',
             'model' => 'required',
             'make_id' => 'required|notIn:0',
             'year' => 'required|integer',
@@ -69,6 +70,7 @@ class VehicleController extends Controller
             'features' => 'sometimes|array',
             'image' => 'required|image|mimes:jpeg|max:5000'
         ], [
+            'vin.required' => 'VIN is required',
             'model.required' => 'Model is required',
             'year.required' => 'Year is required',
             'make_id.required' => 'Make is required',
@@ -86,6 +88,7 @@ class VehicleController extends Controller
         ]);
 
         $vehicle = new Vehicle;
+        $vehicle->vin = $request->input('vin');
         $vehicle->model = $request->input('model');
         $vehicle->make_id = $request->input('make_id');
         $vehicle->year = $request->input('year');
@@ -100,12 +103,12 @@ class VehicleController extends Controller
         $vehicle->transmission_id = $request->input('transmission_id');
         $vehicle->drivetrain_id = $request->input('drivetrain_id');
         $vehicle->features = $request->input('features');
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
-            $path = $request->file('image')->storeAs('uploads', $fileNameToStore, 'public');            
+            $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
+            $path = $request->file('image')->storeAs('uploads', $fileNameToStore, 'public');
         }
         $vehicle->image = $fileNameToStore;
         $vehicle->save();
@@ -138,7 +141,7 @@ class VehicleController extends Controller
         $locations = Location::all();
         $makes = Make::all();
         $transmissions = Transmission::all();
-        return view('admin/vehicles/edit', compact('vehicle', 'bodytypes','colors', 'cylinders', 'drivetrains', 'locations', 'makes', 'transmissions'));
+        return view('admin/vehicles/edit', compact('vehicle', 'bodytypes', 'colors', 'cylinders', 'drivetrains', 'locations', 'makes', 'transmissions'));
     }
 
     /**
@@ -153,6 +156,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($vehicle);
 
         $request->validate([
+            'vin' => 'required|size:17',
             'model' => 'required',
             'make_id' => 'required|notIn:0',
             'year' => 'required|integer',
@@ -169,6 +173,7 @@ class VehicleController extends Controller
             'features' => 'sometimes|array',
             'image' => 'image|mimes:jpeg|max:5000'
         ], [
+            'vin.required' => 'VIN is required',
             'model.required' => 'Model is required',
             'year.required' => 'Year is required',
             'make_id.required' => 'Make is required',
@@ -185,6 +190,7 @@ class VehicleController extends Controller
         ]);
 
 
+        $vehicle->vin = $request->input('vin');
         $vehicle->model = $request->input('model');
         $vehicle->make_id = $request->input('make_id');
         $vehicle->year = $request->input('year');
@@ -200,16 +206,16 @@ class VehicleController extends Controller
         $vehicle->drivetrain_id = $request->input('drivetrain_id');
         $vehicle->features = $request->input('features');
 
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+            $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
             $path = $request->file('image')->storeAs('uploads', $fileNameToStore, 'public');
-            Storage::delete('public/uploads/'.$vehicle->image);
-        } 
-       
-        if($request->hasFile('image')){
+            Storage::delete('public/uploads/' . $vehicle->image);
+        }
+
+        if ($request->hasFile('image')) {
             $vehicle->image = $fileNameToStore;
         }
         $vehicle->save();

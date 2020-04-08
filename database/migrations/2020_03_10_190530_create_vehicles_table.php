@@ -16,6 +16,7 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('make_id');
+            $table->string('vin');
             $table->string('model');
             $table->integer('year');
             $table->unsignedBigInteger('type_id');

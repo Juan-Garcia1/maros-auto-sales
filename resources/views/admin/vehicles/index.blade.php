@@ -11,6 +11,7 @@
             <th style="width: 10px">#</th>
             <th>Model</th>
             <th>Location</th>
+            <th>VIN</th>
             <th></th>
         </tr>
         </thead>
@@ -26,6 +27,7 @@
                         </div> --}}
                     </td>
                     {{-- <td><span class="badge bg-danger">55%</span></td> --}}
+                    <td>{{ $vehicle->vin }}</td>
                     <td><a href="{{ route('vehicle.edit', [$vehicle]) }}">edit</a></td>
                 </tr>
             @endforeach
