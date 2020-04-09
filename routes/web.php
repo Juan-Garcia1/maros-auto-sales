@@ -8,7 +8,7 @@ Route::get('inventory/{vehicle}-{slug}', 'ListingController@show')->name('listin
 Route::view('/contact', 'contact');
 
 // Admin Dashboard
-Route::view('admin', '/admin');
+Route::get('/admin', 'admin\AdminController@index');
 
 // Admin Vehicles Inventory
 Route::get('/admin/vehicles', 'admin\VehicleController@index')->name('vehicle.index');
