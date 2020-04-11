@@ -5,6 +5,14 @@
 @endsection
 
 @section('content')
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{session('success')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     @include('includes.search-form')
 
     <table class="table table-striped">
@@ -21,7 +29,7 @@
             @foreach ($vehicles as $vehicle)
                 <tr>
                     <td>{{ $vehicle->id }}</td>
-                    <td>{{ $vehicle->model }}</td>
+                    <td><a href="{{ route('vehicle.show', [$vehicle]) }}">{{ $vehicle->model }}</a></td>
                     <td>
                         {{ $vehicle->location->address }}
                         {{-- <div class="progress progress-xs">

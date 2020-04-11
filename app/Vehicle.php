@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vehicle extends Model
 {
@@ -15,6 +16,9 @@ class Vehicle extends Model
     // {
     //     return 'slug';
     // }
+
+    use SoftDeletes;
+    const DELETED_AT = 'sold_at';
 
     protected $fillable = ['vin', 'make_id', 'model', 'year', 'type_id', 'location_id', 'color_id', 'owners', 'seats', 'price', 'mileage', 'transmission_id', 'cylinder_id', 'drivetrain_id', 'features', 'image'];
 

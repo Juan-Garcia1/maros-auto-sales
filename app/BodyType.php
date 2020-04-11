@@ -8,7 +8,8 @@ class BodyType extends Model
 {
     public $timestamps = false;
 
-    public function vehicles() {
-        return $this->hasMany(Vehicle::class);
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class, 'type_id');
     }
 }

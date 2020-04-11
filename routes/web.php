@@ -14,10 +14,14 @@ Route::get('/admin', 'admin\AdminController@index');
 Route::get('/admin/vehicles', 'admin\VehicleController@index')->name('vehicle.index');
 Route::get('/admin/vehicles/create', 'admin\VehicleController@create')->name('vehicle.create');
 Route::post('/admin/vehicles', 'admin\VehicleController@store');
+Route::get('/admin/vehicles/search', 'admin\VehicleController@search')->name('search');
+Route::get('/admin/vehicles/{vehicle}', 'admin\VehicleController@show')->name('vehicle.show');
 Route::get('/admin/vehicles/{vehicle}/edit', 'admin\VehicleController@edit')->name('vehicle.edit');
 Route::put('/admin/vehicles/{vehicle}', 'admin\VehicleController@update')->name('vehicle.update');
+Route::delete('/admin/vehicles/{vehicle}', 'admin\VehicleController@sold')->name('vehicle.sold');
 
-Route::get('/admin/vehicles/search', 'admin\VehicleController@search')->name('search');
+Route::get('/chart/data', 'admin\AdminController@chart');
+
 
 // Route::post('/admin/vehicles', 'admin/VehiclesController@store');
 // Route::get('/admin/vehicles/{id}/edit', 'admin/VehiclesController@edit');

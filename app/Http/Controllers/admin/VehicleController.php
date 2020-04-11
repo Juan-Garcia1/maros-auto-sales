@@ -125,9 +125,9 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehicle $vehicle)
     {
-        //
+        return view('admin/vehicles/show', compact('vehicle'));
     }
 
     /**
@@ -237,6 +237,13 @@ class VehicleController extends Controller
         $vehicles = Vehicle::where('vin', 'like', "%$query%")->get();
 
         return view('admin/vehicles/search-results', compact('vehicles'));
+    }
+
+    public function sold(Vehicle $vehicle)
+    {
+        $vehicle->delete();
+
+        return redirect('admin/vehicles')->with('success', 'Vehicle has been sold!');
     }
 
     /**

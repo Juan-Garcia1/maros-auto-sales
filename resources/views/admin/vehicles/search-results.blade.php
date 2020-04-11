@@ -21,7 +21,7 @@
             @forelse ($vehicles as $vehicle)
                 <tr>
                     <td>{{ $vehicle->id }}</td>
-                    <td>{{ $vehicle->model }}</td>
+                    <td><a href="{{ route('vehicle.show', [$vehicle]) }}">{{ $vehicle->model }}</a></td>
                     <td>
                         {{ $vehicle->location->address }}
                         
