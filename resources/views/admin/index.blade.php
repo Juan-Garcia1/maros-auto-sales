@@ -53,6 +53,11 @@
     <!-- /.col-md-6 -->
 </div>
 <!-- /.row -->
+<div class="card card-primary">
+    <div class="card-body">
+        <canvas id="sold-vehicles-by-month" height="150"></canvas>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -60,6 +65,7 @@
     <script>
         var soldVehiclesByType = document.getElementById('sold-vehicles-by-type').getContext('2d');
         var soldVehiclesByColor = document.getElementById('sold-vehicles-by-color').getContext('2d');
+        var soldVehiclesByMonth = document.getElementById('sold-vehicles-by-month').getContext('2d');
         var url = "{{url('chart/data')}}";
         
         $.ajax({
@@ -77,8 +83,12 @@
                 soldVehiclesByColorChart.data.datasets[0].data = data.colorSold;
                 soldVehiclesByColorChart.data.datasets[0].backgroundColor = Array.from(new Set(data.colors));
 
+                soldVehiclesByMonthChart.data.labels = data.months;
+                soldVehiclesByMonthChart.data.datasets[0].data = data.monthsTotal;
+
                 soldVehiclesByTypeChart.update();
                 soldVehiclesByColorChart.update();
+                soldVehiclesByMonthChart.update();
             },
             error: function(data) {
                 console.log(data);
@@ -146,6 +156,50 @@
                 text:'Vehicles Sold By Color',
                 fontSize:18,
                 responsive: true
+                },
+            }
+        });
+
+        var soldVehiclesByMonthChart = new Chart(soldVehiclesByMonth, {
+            type:'line',
+            data:{
+                labels: [],
+                datasets:[{
+                label:'total',
+
+                data: [],
+                backgroundColor:'#e6f3ff',
+                borderWidth:1,
+                borderColor: '#339cff'
+                }]
+            },
+            options:{
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
+                title:{
+                display:true,
+                text:'Vehicles Sold In the Past 12 Months',
+                fontSize:18,
+                responsive: true
+                },
+                legend:{
+                display:false,
+                },
+                layout:{
+                padding:{
+                    left:0,
+                    right:0,
+                    bottom:0,
+                    top:0
+                }
+                },
+                tooltips:{
+                enabled:true
                 },
             }
         });

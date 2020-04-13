@@ -34,18 +34,29 @@ class AdminController extends Controller
             ->where('vehicles.sold_at', '!=', null)
             ->groupBy('body_types.name')
             ->get();
+
         $vehicleColors = DB::table('vehicles')
             ->join('colors', 'vehicles.color_id', '=', 'colors.id')
             ->selectRaw('COUNT(vehicles.id) as total, colors.name as colors')
             ->where('vehicles.sold_at', '!=', null)
             ->groupBy('colors.name')
             ->get();
+
+        $soldByMonth = DB::table('vehicles')
+            ->selectRaw('MONTHNAME(sold_at) as month, COUNT(vehicles.id) as total')
+            ->whereRaw('sold_at > DATE_SUB(now(), INTERVAL 12 MONTH)')
+            ->groupBy('month')
+            ->get();
+
+        $months = $soldByMonth->pluck('month');
+        $monthsTotal = $soldByMonth->pluck('total');
         $colors = $vehicleColors->pluck('colors');
         $colorSold = $vehicleColors->pluck('total');
         $bodyType = $vehicles->pluck('name');
         $total = $vehicles->pluck('total');
 
-        return response()->json(compact('colors', 'colorSold', 'bodyType', 'total'));
+
+        return response()->json(compact('colors', 'colorSold', 'bodyType', 'total', 'months', 'monthsTotal'));
     }
 
     /**
