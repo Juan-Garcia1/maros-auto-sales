@@ -93,8 +93,9 @@
                 label:'total',
 
                 data: [],
-                backgroundColor:'#99ccff',
+                backgroundColor:'#e6f3ff',
                 borderWidth:1,
+                borderColor: '#339cff'
                 }]
             },
             options:{
