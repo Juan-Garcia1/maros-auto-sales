@@ -67,8 +67,8 @@
               </li>
             </ul>
           </li> --}}
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview {{Route::currentRouteName() == ('vehicle.index' || 'vehicle.create') ? 'menu-open' : ''}}">
+            <a href="#" class="nav-link {{Route::currentRouteName() == ('vehicle.index' || 'vehicle.create') ? 'active' : ''}}">
               <i class="nav-icon fas fa-car"></i>
               <p>
                 Vehicles
