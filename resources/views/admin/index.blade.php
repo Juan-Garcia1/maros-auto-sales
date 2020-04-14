@@ -7,6 +7,20 @@
     <div class="col-md-3">
         <div class="small-box bg-success">
             <div class="inner">
+                <h3>${{ number_format($revenue) }}</h3>
+        
+                <p>Revenue</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-md-3 -->
+    
+    <div class="col-md-3">
+        <div class="small-box bg-primary">
+            <div class="inner">
                 <h3>{{ $vehiclesSold }}</h3>
         
                 <p>Total Vehicles Sold</p>
@@ -17,12 +31,13 @@
         </div>
     </div>
     <!-- /.col-md-3 -->
+
     <div class="col-md-3">
         <div class="small-box bg-primary">
             <div class="inner">
-                <h3>${{ number_format($revenue) }}</h3>
+                <h3>{{ number_format($inventory) }}</h3>
         
-                <p>Revenue</p>
+                <p>Inventory</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>

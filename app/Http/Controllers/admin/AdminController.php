@@ -22,7 +22,8 @@ class AdminController extends Controller
     {
         $vehiclesSold = Vehicle::onlyTrashed()->count();
         $revenue = Vehicle::onlyTrashed()->sum('price');
-        return view('admin.index', compact('vehiclesSold', 'revenue'));
+        $inventory = Vehicle::count();
+        return view('admin.index', compact('vehiclesSold', 'revenue', 'inventory'));
     }
 
     public function chart()
