@@ -17,7 +17,7 @@
         </div>
     </div>
     <!-- /.col-md-3 -->
-    
+
     <div class="col-md-3">
         <div class="small-box bg-primary">
             <div class="inner">
@@ -71,6 +71,31 @@
 <div class="card card-primary">
     <div class="card-body">
         <canvas id="sold-vehicles-by-month" height="150"></canvas>
+    </div>
+</div>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Remaining Inventory By Body Type</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Body Type</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($inventoryByBodyTypes as $inventoryByBodyType)
+                    <tr>
+                        <td>
+                            {{ $inventoryByBodyType->name }}
+                        </td>
+                        <td>{{ $inventoryByBodyType->vehicle_inventory }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection

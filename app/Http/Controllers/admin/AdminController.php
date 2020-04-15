@@ -23,7 +23,13 @@ class AdminController extends Controller
         $vehiclesSold = Vehicle::onlyTrashed()->count();
         $revenue = Vehicle::onlyTrashed()->sum('price');
         $inventory = Vehicle::count();
-        return view('admin.index', compact('vehiclesSold', 'revenue', 'inventory'));
+        $inventoryByBodyTypes = DB::table('vehicles')
+            ->join('body_types', 'vehicles.type_id', '=', 'body_types.id')
+            ->selectRaw('body_types.name, COUNT(vehicles.id) as vehicle_inventory')
+            ->where('vehicles.sold_at', '=', null)
+            ->groupBy('body_types.name')
+            ->get();
+        return view('admin.index', compact('vehiclesSold', 'revenue', 'inventory', 'inventoryByBodyTypes'));
     }
 
     public function chart()
