@@ -194,6 +194,9 @@
                 fontSize:18,
                 responsive: true
                 },
+                legend: {
+                    position: 'bottom'
+                }
             }
         });
 
