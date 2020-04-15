@@ -133,7 +133,7 @@
         });
 
         var soldVehiclesByTypeChart = new Chart(soldVehiclesByType, {
-            type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+            type:'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
             data:{
                 labels: [],
                 datasets:[{
