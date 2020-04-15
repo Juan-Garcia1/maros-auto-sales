@@ -4,57 +4,84 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-3">
-        <div class="small-box bg-success">
-            <div class="inner">
-                <h3>${{ number_format($revenue) }}</h3>
-        
-                <p>Revenue</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-md-3 -->
-
-    <div class="col-md-3">
-        <div class="small-box bg-primary">
-            <div class="inner">
-                <h3>{{ $vehiclesSold }}</h3>
-        
-                <p>Total Vehicles Sold</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-md-3 -->
-
-    <div class="col-md-3">
-        <div class="small-box bg-primary">
-            <div class="inner">
-                <h3>{{ number_format($inventory) }}</h3>
-        
-                <p>Inventory</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-md-3 -->
-</div>
-<!-- /.row -->
-
-<div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="card card-primary">
             <div class="card-body">
                 <canvas id="sold-vehicles-by-type"></canvas>
             </div>
             <!-- /.card-body-->
+        </div>
+    </div>
+    <!-- /.col-md-8 -->
+
+    <div class="col-md-4">
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3>${{ number_format($revenue) }}</h3>
+    
+            <p>Revenue</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+    </div>
+    <div class="small-box bg-primary">
+        <div class="inner">
+            <h3>{{ $vehiclesSold }}</h3>
+    
+            <p>Total Vehicles Sold</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+    </div>
+    <div class="small-box bg-primary">
+        <div class="inner">
+            <h3>{{ number_format($inventory) }}</h3>
+    
+            <p>Inventory</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+    </div>
+</div>
+<!-- /.col-md-4 -->
+</div>
+<!-- /.row -->
+
+<div class="card card-primary">
+    <div class="card-body">
+        <canvas id="sold-vehicles-by-month" height="150"></canvas>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Remaining Inventory By Body Type</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Body Type</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($inventoryByBodyTypes as $inventoryByBodyType)
+                            <tr>
+                                <td>
+                                    {{ $inventoryByBodyType->name }}
+                                </td>
+                                <td>{{ $inventoryByBodyType->vehicle_inventory }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <!-- /.col-md-6 -->
@@ -68,36 +95,6 @@
     <!-- /.col-md-6 -->
 </div>
 <!-- /.row -->
-<div class="card card-primary">
-    <div class="card-body">
-        <canvas id="sold-vehicles-by-month" height="150"></canvas>
-    </div>
-</div>
-<div class="card card-primary">
-    <div class="card-header">
-        <h3 class="card-title">Remaining Inventory By Body Type</h3>
-    </div>
-    <div class="card-body">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Body Type</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($inventoryByBodyTypes as $inventoryByBodyType)
-                    <tr>
-                        <td>
-                            {{ $inventoryByBodyType->name }}
-                        </td>
-                        <td>{{ $inventoryByBodyType->vehicle_inventory }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
 @endsection
 
 @section('scripts')
