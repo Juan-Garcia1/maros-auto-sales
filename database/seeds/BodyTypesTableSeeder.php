@@ -13,14 +13,14 @@ class BodyTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('body_types')->insert([
-            ['name' => 'Coupe', 'slug' => 'coupe'],
-            ['name' => 'Sedan', 'slug' => 'sedan'],
-            ['name' => 'Convertible', 'slug' => 'convertible'],
-            ['name' => 'SUV', 'slug' => 'suv'],
-            ['name' => 'Truck', 'slug' => 'truck'],
-            ['name' => 'MiniVan/Van', 'slug' => 'minivan-van'],
-            ['name' => 'Wagon', 'slug' => 'wagon'],
-            ['name' => 'Hatchback', 'slug' => 'hatchback']
+            ['name' => 'Coupe', 'slug' => 'coupe', 'image' => 'coupe.jpg'],
+            ['name' => 'Sedan', 'slug' => 'sedan', 'image' => 'sedan.jpg'],
+            ['name' => 'Convertible', 'slug' => 'convertible', 'image' => 'convertible.jpg'],
+            ['name' => 'SUV', 'slug' => 'suv', 'image' => 'suv.jpg'],
+            ['name' => 'Truck', 'slug' => 'truck', 'image' => 'truck.jpg'],
+            ['name' => 'MiniVan/Van', 'slug' => 'minivan-van', 'image' => 'minivan.jpg'],
+            ['name' => 'Wagon', 'slug' => 'wagon', 'image' => 'wagon.jpg'],
+            ['name' => 'Hatchback', 'slug' => 'hatchback', 'image' => 'hatchback.jpg']
         ]);
     }
 }

@@ -144,7 +144,9 @@
                         @foreach ($bodytypes as $bodytype)
                             <div class="col-md-3 col-4 mb-2">
                                 <input type="radio" name="type_id" id="{{ $bodytype->name }}" value="{{ $bodytype->id }}" {{ old('type_id') == $bodytype->id ? 'checked' : '' }}>
-                                <label for="{{ $bodytype->name }}" class="ml-1">{{ $bodytype->name }}</label>
+                                <label for="{{ $bodytype->name }}" class="ml-1">
+                                    <img class="img-responsive" style="width:80%; cursor:pointer;" src="{{ asset('images/'.$bodytype->image) }}" alt="{{ $bodytype->name }}" title="{{ $bodytype->name }}">
+                                </label>
                             </div>
                             <!-- /.col-md-4 -->
                         @endforeach

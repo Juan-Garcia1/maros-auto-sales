@@ -116,7 +116,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background: #F5F5F5;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
