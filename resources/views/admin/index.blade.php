@@ -147,7 +147,7 @@
             },
             options:{
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero:true
                         }
