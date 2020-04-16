@@ -88,7 +88,7 @@
     <div class="col-md-6">
         <div class="card card-primary">
             <div class="card-body">
-                <canvas id="sold-vehicles-by-color" height="150"></canvas>
+                <canvas id="sold-vehicles-by-color" height="220"></canvas>
             </div>
         </div>
     </div>
