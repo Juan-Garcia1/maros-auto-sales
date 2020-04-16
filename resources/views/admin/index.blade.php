@@ -60,7 +60,7 @@
     <div class="col-md-6">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Remaining Inventory By Body Type</h3>
+                <h3 class="card-title">Remaining Inventory</h3>
             </div>
             <div class="card-body">
                 <table class="table table-hover">
