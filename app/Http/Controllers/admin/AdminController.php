@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Location;
 use App\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $locations = Location::with('vehicles')->groupBy('address')->get();
         $vehiclesSold = Vehicle::onlyTrashed()->count();
         $revenue = Vehicle::onlyTrashed()->sum('price');
         $inventory = Vehicle::count();
@@ -29,7 +31,7 @@ class AdminController extends Controller
             ->where('vehicles.sold_at', '=', null)
             ->groupBy('body_types.name')
             ->get();
-        return view('admin.index', compact('vehiclesSold', 'revenue', 'inventory', 'inventoryByBodyTypes'));
+        return view('admin.index', compact('locations', 'vehiclesSold', 'revenue', 'inventory', 'inventoryByBodyTypes'));
     }
 
     public function chart()

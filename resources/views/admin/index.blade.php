@@ -95,6 +95,30 @@
     <!-- /.col-md-6 -->
 </div>
 <!-- /.row -->
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Inventory Remaining By Location</h3>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($locations as $location)
+                    <tr>
+                        <td>{{ $location->address }}</td>
+                        <td>{{ $location->vehicles->count() }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
 @endsection
 
 @section('scripts')
