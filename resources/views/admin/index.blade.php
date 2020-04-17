@@ -6,6 +6,9 @@
 <div class="row">
     <div class="col-md-8">
         <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Vehicles Sold By Body Type</h3>
+            </div>
             <div class="card-body">
                 <canvas id="sold-vehicles-by-type"></canvas>
             </div>
@@ -51,6 +54,9 @@
 <!-- /.row -->
 
 <div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Vehicles Sold In The Past 12 Months</h3>
+    </div>
     <div class="card-body">
         <canvas id="sold-vehicles-by-month" height="150"></canvas>
     </div>
@@ -87,6 +93,9 @@
     <!-- /.col-md-6 -->
     <div class="col-md-6">
         <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Vehicles Sold By Color</h3>
+            </div>
             <div class="card-body">
                 <canvas id="sold-vehicles-by-color" height="220"></canvas>
             </div>
@@ -177,12 +186,6 @@
                         }
                     }]
                 },
-                title:{
-                display:true,
-                text:'Vehicles Sold By Body Type',
-                fontSize:18,
-                responsive: true
-                },
                 legend:{
                 display:false,
                 },
@@ -212,12 +215,6 @@
                 }]
             },
             options:{
-                title:{
-                display:true,
-                text:'Vehicles Sold By Color',
-                fontSize:18,
-                responsive: true
-                },
                 legend: {
                     position: 'bottom'
                 }
@@ -244,12 +241,6 @@
                             beginAtZero:true
                         }
                     }]
-                },
-                title:{
-                display:true,
-                text:'Vehicles Sold In the Past 12 Months',
-                fontSize:18,
-                responsive: true
                 },
                 legend:{
                 display:false,
