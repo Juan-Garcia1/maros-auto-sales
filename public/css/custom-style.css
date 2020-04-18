@@ -2299,7 +2299,20 @@ nav.navbar {
 	 3. Home-Page
 
 ================================*/
+.pagination .page-link {
+  color: #fa2837;
+}
 
+.pagination .page-item:hover .page-link {
+  background-color: #fa2837;
+  color: #fff;
+  border-color: #fa2837;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #fa2837;
+  border-color: #fa2837;
+}
 
 
 /*-------------------------
@@ -6995,7 +7008,7 @@ ul.page-numbers li {
 
 .pagination ul li.current, .pagination ul li:hover a, ul.page-numbers .page-numbers.current, ul.page-numbers .page-numbers:hover, ul.page-numbers .page-numbers:focus, 
 
-.page-links a span.page-number:hover, .page-links span.page-number:focus, .page-links span.page-number  {
+.page-links a span.page-number:hover, .page-links span.page-number:focus, .page-links span.page-number {
 
 	color:#fff;	
 
