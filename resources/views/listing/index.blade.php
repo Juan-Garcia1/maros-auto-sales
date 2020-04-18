@@ -63,7 +63,7 @@
             <li><i class="fa fa-tachometer" aria-hidden="true"></i>{{ number_format($vehicle->mileage) }}</li><li><i class="fa fa-user" aria-hidden="true"></i>{{ $vehicle->seats }} seats</li><li><i class="fa fa-calendar" aria-hidden="true"></i>{{ $vehicle->year }}</li><li><i class="fa fa-car" aria-hidden="true"></i>{{ $vehicle->transmission->name }}</li><li><i class="fa fa-cogs" aria-hidden="true"></i>{{ $vehicle->drivetrain->name }}</li>
             </ul>
 
-        <a href="{{ route('listing.show', [$vehicle, Str::slug($vehicle->model)]) }}" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+        <a href="{{ route('listing.show', [$vehicle, Str::slug($vehicle->model)]) }}" class="btn">View Details</a>
 
         </div>
     </div>
