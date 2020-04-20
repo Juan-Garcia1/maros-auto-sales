@@ -2299,6 +2299,18 @@ nav.navbar {
 	 3. Home-Page
 
 ================================*/
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
 .pagination .page-link {
   color: #fa2837;
 }

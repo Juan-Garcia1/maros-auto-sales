@@ -122,7 +122,7 @@
       
                 <div class="logo">
       
-                  <a  href="http://themes.webmasterdriver.net/carforyouwp/" title="CarForYou" rel="home" ><img src="http://themes.webmasterdriver.net/carforyouwp/wp-content/uploads/2016/12/logo.png" alt="image"></a>
+                  <a  href="/" title="CarForYou" rel="home" ><img src="https://img1.wsimg.com/isteam/ip/3370728f-fd8d-4ac6-a2ad-642ff72220e3/79504201_2167061860267645_9138594368888766464_.jpg/:/rs=w:150,h:150" alt="image"></a>
                 </div>
       
               </div>
@@ -137,7 +137,7 @@
                           <div class="header_widgets">
       
                             
-                            <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
+                            <div class="circle_icon d-flex justify-content-center align-items-center"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
       
                             
                             
@@ -159,13 +159,6 @@
                               <li><a href="https://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
       
                               
-                              
-                              <li><a href="https://twitter.com/login"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-      
-                              
-                              
-                              <li><a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-      
                               
                             </ul>
       
@@ -245,15 +238,13 @@
                               <div class="footer_widget">
                                           <p>Connect with Us:</p>
                                           <ul>
-                                                      <li><a href="https://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                                                          <li><a href="https://twitter.com/login"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                                                      <li><a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                            </ul>
+                                            <li><a href="https://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                          </ul>
                     </div>
                     </div>
                   <div class="col-md-6 col-md-pull-6">
             <p class="copy-right">
-              Copyright © 2019 <a>CarForYou</a> All Rights Reserved          </p>
+              Copyright © {{ date('Y') }} <a>Maro's auto sales</a> All Rights Reserved</p>
           </div>
                 </div>
       </div>

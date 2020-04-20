@@ -71,21 +71,17 @@
             <ul>
               <li>
                 <div class="icon_wrap"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-                <div class="contact_info_m">PO Box 1025MNO Collins Street West Victoria 8007 Australia</div>
+                <div class="contact_info_m">4212 West 26th Street, Chicago, Illinois 60623 (Main)</div>
               </li>
               <li>
                 <div class="icon_wrap"><i class="fa fa-phone" aria-hidden="true"></i></div>
                 <div class="contact_info_m"><a href="tel:61-1234-567-90">+61-123-456-789</a></div>
               </li>
-              <li>
-                <div class="icon_wrap"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
-                <div class="contact_info_m"><a href="mailto:contact@exampleurl.com">contact@exampleurl.com</a></div>
-              </li>
             </ul>
           </div>
           </div>
       </div>
-  <div class="wpb_gmaps_widget wpb_content_element vc_custom_1486128033105 map_wrap"><div class="wpb_wrapper"><div class="wpb_map_wraper"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6304.829986131271!2d-122.4746968033092!3d37.80374752160443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586e6302615a1%3A0x86bd130251757c00!2sStorey+Ave%2C+San+Francisco%2C+CA+94129!5e0!3m2!1sen!2sus!4v1435826432051" width="558" height="440" frameborder="0" style="border:0" allowfullscreen></iframe></div></div></div></div></div></div></div></div></div></div></div>
+  <div class="wpb_gmaps_widget wpb_content_element vc_custom_1486128033105 map_wrap"><div class="wpb_wrapper"><div class="wpb_map_wraper"><iframe style="width: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2972.256290568034!2d-87.7322248848287!3d41.84431007550763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e324ee51cf1ab%3A0xc2a9c53b39195ed7!2sMaros%20Auto%20Sales%20Inc!5e0!3m2!1sen!2sus!4v1584387121078!5m2!1sen!2sus" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div></div></div></div></div></div></div></div></div></div></div>
              </article>
           </div>
       </div>
