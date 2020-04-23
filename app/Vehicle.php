@@ -60,4 +60,9 @@ class Vehicle extends Model
     {
         return $this->belongsTo(DriveTrain::class);
     }
+
+    public function gallery()
+    {
+        return $this->belongsTo(Gallery::class);
+    }
 }

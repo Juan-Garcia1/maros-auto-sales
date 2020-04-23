@@ -20,6 +20,10 @@ Route::get('/admin/vehicles/{vehicle}/edit', 'admin\VehicleController@edit')->na
 Route::put('/admin/vehicles/{vehicle}', 'admin\VehicleController@update')->name('vehicle.update');
 Route::delete('/admin/vehicles/{vehicle}', 'admin\VehicleController@sold')->name('vehicle.sold');
 
+Route::get('/admin/vehicles/{vehicle}/gallery/create', 'admin\GalleryController@create')->name('gallery.create');
+Route::post('/admin/vehicles/{vehicle}/gallery', 'admin\GalleryController@store')->name('gallery.store');
+Route::delete('/admin/vehicles/{vehicle}/gallery/{imageid}', 'admin\GalleryController@destroy')->name('gallery.destroy');
+
 Route::get('/chart/data', 'admin\AdminController@chart');
 
 
