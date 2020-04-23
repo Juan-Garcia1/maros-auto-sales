@@ -1,5 +1,37 @@
 @extends('layouts.app')
 
+@section('css-styles')
+    <style>
+      .slick-arrow {
+        z-index: 2;
+        background-color: #fa2837;
+        height: 80px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slick-arrow:hover {
+        background-color: #c60210; 
+      }
+      .slick-next::before {
+        content: "\f054";
+      }
+      .slick-prev::before {
+        content: "\f053";
+      }
+      .slick-prev::before,
+      .slick-next::before {
+        font-family: 'FontAwesome';
+        opacity: 1;
+      }
+      .slick-arrow.slick-prev::after,
+      .slick-arrow.slick-next::after {
+        content: '';
+      }
+    </style>
+@endsection
+
 @section('content')
 <section class="listing_detail_header parallex-bg" style="background-image:url(http://themes.webmasterdriver.net/carforyouwp/wp-content/uploads/2017/01/listing-detail-header-img.jpg )">
     <div class="container">
@@ -33,7 +65,26 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <img style="width: 100%;" src="{{ asset('storage/uploads/'.$vehicle->image) }}" alt="{{ $vehicle->model }}">
+          @if (count($galleries) > 0)
+            <div class="slider slider-for">
+              @foreach ($galleries as $gallery)
+                <div>
+                  <img style="width:100%;" src="{{ asset('storage/uploads/gallery/'.str_replace('"', '', $gallery->image)) }}" alt="">
+                </div>
+              @endforeach
+              
+            </div>
+            <div class="slider slider-nav">
+              @foreach ($galleries as $gallery)
+              <div style="padding-left: 3px; padding-right: 3px;">
+                <img class="mx-2" src="{{ asset('storage/uploads/gallery/'.str_replace('"', '', $gallery->image)) }}" alt="">
+              </div>
+              @endforeach
+            </div>
+          @else
+            <img style="width:100%;" src="{{ asset('storage/uploads/'.$vehicle->image) }}" alt="{{ $vehicle->model }}">  
+          @endif
+          
           <div class="space-20"></div>
           <div class="main_features">
             <ul>
@@ -171,7 +222,7 @@
     @else 
     
     <iframe style="width: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.2654902697645!2d-87.74788648470705!3d41.86563407922322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e330572425311%3A0x74af61f0b2d96429!2s4813%20W%20Roosevelt%20Rd%2C%20Chicago%2C%20IL%2060804!5e0!3m2!1sen!2sus!4v1586032829256!5m2!1sen!2sus" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    
+
     @endif
     <div class="space-20"></div>
     <a href="/contact" class="btn btn-block">Contact Us</a>
@@ -186,4 +237,28 @@
   
   <!--/Listing-detail-->
  
+@endsection
+
+@section('main-scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: false,
+        asNavFor: '.slider-nav',
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: false,
+        centerMode: false,
+        focusOnSelect: true,
+        infinite: false,
+        arrows: false,
+      });
+    </script>
 @endsection

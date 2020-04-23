@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Vehicle;
 use App\Make;
 use App\BodyType;
+use Illuminate\Support\Facades\DB;
 
 class ListingController extends Controller
 {
@@ -14,25 +15,26 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $vehicles = Vehicle::with('make', 'bodyType')->when(request()->make, function($query) {
-            return $query->whereHas('make', function($query) {
+    public function index()
+    {
+        $vehicles = Vehicle::with('make', 'bodyType')->when(request()->make, function ($query) {
+            return $query->whereHas('make', function ($query) {
                 return $query->where('slug', request()->make);
             });
         })
-        ->when(request()->bodyType, function($query) {
-            return $query->whereHas('bodyType', function($query) {
-                return $query->where('slug', request()->bodyType);
-            });
-        })
-        ->when(request()->sort == 'low_high', function($query) {
-            return $query->orderBy('price');
-        })
-        ->when(request()->sort == 'high_low', function($query) {
-            return $query->orderBy('price', 'desc');
-        })
-        ->paginate(8)
-        ->appends(request()->query());
+            ->when(request()->bodyType, function ($query) {
+                return $query->whereHas('bodyType', function ($query) {
+                    return $query->where('slug', request()->bodyType);
+                });
+            })
+            ->when(request()->sort == 'low_high', function ($query) {
+                return $query->orderBy('price');
+            })
+            ->when(request()->sort == 'high_low', function ($query) {
+                return $query->orderBy('price', 'desc');
+            })
+            ->paginate(8)
+            ->appends(request()->query());
         $makes = Make::all();
         $bodyTypes = BodyType::all();
 
@@ -51,7 +53,7 @@ class ListingController extends Controller
     //          // if no query string is available
     //          $makes = Make::all();
     //          $bodyTypes = BodyType::all();
-             
+
     //          $vehicles = Vehicle::paginate(4);
     //     }
     //     // else if(request()->bodyType) {
@@ -72,7 +74,7 @@ class ListingController extends Controller
     //         // if no query string is available
     //         $makes = Make::all();
     //         $bodyTypes = BodyType::all();
-            
+
     //         $vehicles = Vehicle::paginate(4);
     //     } 
     //     return view('listing.index')->with([
@@ -83,7 +85,7 @@ class ListingController extends Controller
     // }
 
 
-    
+
     /**
      * Display the specified resource.
      *
@@ -91,7 +93,12 @@ class ListingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Vehicle $vehicle)
-    {   
-        return view('listing.show', compact('vehicle'));
-    }   
+    {
+        $galleries = DB::table('vehicles')
+            ->join('galleries', 'vehicles.id', '=', 'galleries.model_id')
+            ->selectRaw('galleries.id, galleries.image as image')
+            ->where('galleries.model_id', '=', $vehicle->id)
+            ->get();
+        return view('listing.show', compact('vehicle', 'galleries'));
+    }
 }

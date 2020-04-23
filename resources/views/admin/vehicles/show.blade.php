@@ -3,6 +3,9 @@
 @section('header-title',  $vehicle->model )
 
 @section('content')
+
+<a href="{{ route('gallery.create', [$vehicle]) }}" class="btn btn-primary mb-4">Add Gallery</a>
+
 <table class="table table-bordered table-striped">
     <tbody>
         <tr>
