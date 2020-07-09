@@ -1,5 +1,13 @@
 @extends('layouts.admin')
 
+@section('css-styles')
+    <style>
+        #thumbnail-container img {
+            width: 25%;
+        }
+    </style>
+@endsection
+
 @section('header-title')
     Add Vehicle
 @endsection
@@ -328,16 +336,43 @@
             <!-- /.col-md-3 -->
             <div class="col-md-9">
                 <div class="form-group d-flex flex-column">
-                    <label for="image">Vehicle Image</label>
-                    <input class="py-2 @error('image') is-invalid @enderror" type="file" accept="image/jpeg" name="image" id="image">
+                    <label for="thumbnail">Vehicle Image</label>
+                    <input class="py-2 @error('image') is-invalid @enderror" type="file" accept="image/jpeg" name="image" id="thumbnail">
                     @error('image')
                         <p class="text-danger"><small>{{ $message }}</small></p>
                     @enderror
                 </div>
+                <div id="thumbnail-container"></div>
             </div>
             <!-- /.col-md-9 -->
         </div>
         <!-- /.row -->
         <input type="submit" value="Add Vehicle" class="btn btn-primary">
     </form>
+@endsection
+
+@section('scripts')
+    <script>
+        const thumbnailInput = document.querySelector('#thumbnail');
+        const thumbnailContainer = document.querySelector('#thumbnail-container');
+        
+        thumbnailInput.addEventListener('change', function(e) {
+            e.stopPropagation();
+            let reader = new FileReader();
+    
+            reader.onload = function (e) {
+                const img = document.createElement('img');
+                img.setAttribute('src', e.target.result);
+                
+                if(!thumbnailContainer.hasChildNodes()) {
+                    thumbnailContainer.append(img);
+                } else {
+                    thumbnailContainer.innerHTML = "";
+                    thumbnailContainer.append(img);
+                }
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+        
+    </script>
 @endsection
